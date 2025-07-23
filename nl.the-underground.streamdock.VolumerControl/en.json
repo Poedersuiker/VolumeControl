@@ -1,0 +1,10 @@
+{
+    "Name": "Volume Control",
+    "Category": "Volume Control",
+    "Description": "Volume Control",
+    "nl.the-underground.streamdock.VolumerControl": {
+        "Name": "Volume Control",
+        "Tooltip": "Volume Control"
+    },
+    "Localization": {}
+}

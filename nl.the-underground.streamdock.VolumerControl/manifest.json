@@ -1,0 +1,53 @@
+{
+    "Actions": [
+      {
+        "UUID": "nl.the-underground.streamdock.VolumerControl.test",
+        "Icon": "static/img/App-logo.png",
+        "state": 0,
+        "States": [
+          {
+            "TitleAlignment": "bottom",
+            "FontSize": "11",
+            "Image": "static/img/App-logo.png"
+          },
+          {
+            "TitleAlignment": "center",
+            "FontSize": "16",
+            "Image": "static/img/icon.png"
+          }
+        ],
+        "Settings": {},
+        "UserTitleEnabled": false,
+        "SupportedInMultiActions": false,
+        "Controllers": [
+          "Keypad",
+          "Information",
+          "Knob"
+        ],
+        "Name": "Test",
+        "Tooltip": "Test",
+        "PropertyInspectorPath": "./propertyInspector/test/index.html"
+      }
+    ],
+    "Version": "0.0.1",
+    "Name": "Python Volume Control",
+    "Icon": "static/img/App-logo.png",
+    "CategoryIcon": "static/img/App-logo.png",
+    "Category": "Windows only!! - Python Volume Controller",
+    "Description": "Volume Control",
+    "CodePath": "nl.the-underground.streamdock.VolumerControl.exe",
+    "SDKVersion": 1,
+    "Author": "TUNL",
+    "URL": "https://StreamDock.the-underground.nl/",
+    "OS": [
+      {
+        "Platform": "windows",
+        "MinimumVersion": "7"
+      }
+    ],
+    "ApplicationsToMonitor": {
+      "windows": [
+        "chrome.exe"
+      ]
+    }
+  }
