@@ -1,73 +1,52 @@
-import json
 from src.core.action import Action
 from src.core.logger import Logger
 
-class Test(Action):
-    def __init__(self, action: str, context: str, settings: dict, plugin):
-        super().__init__(action, context, settings, plugin)
-        # Set up timer to update time every second
-        # Verified
-        Logger.info(f"[TestAction] Initialized with context {context}")
-    
-    def on_will_disappear(self):
-        # Verified
-        # Clear the timer when action disappears
-        Logger.info(f"[TestAction] Will disappear for context {self.context}")
-    
-    def on_did_receive_global_settings(self, settings: dict):
-        # Verified
-        # Handle global settings update
-        Logger.info(f"[TestAction] Received global settings: {settings}")
+class TestAction(Action):
+    def __init__(self, context, settings, plugin):
+        super().__init__(context, settings, plugin)
+        Logger.info(f"TestAction created for context: {context}")
 
-    def on_key_down(self, payload: dict):
-        # Verified
-        Logger.info(f"[TestAction] Key down event with payload: {payload}")
+    def on_key_down(self, payload):
+        Logger.info(f"TestAction on_key_down: {payload}")
 
-    def on_key_up(self, payload: dict):
-        # Verified
-        self.set_state(1)
-        Logger.info(f"[TestAction] Key up event with payload: {payload}")
+    def on_key_up(self, payload):
+        Logger.info(f"TestAction on_key_up: {payload}")
 
-    def on_dial_down(self, payload: dict):
-        # Verified
-        Logger.info(f"[TestAction] Dial down event with payload: {payload}")
+    def on_will_appear(self, payload):
+        Logger.info(f"TestAction on_will_appear: {payload}")
 
-    def on_dial_up(self, payload: dict):
-        # Verified
-        Logger.info(f"[TestAction] Dial up event with payload: {payload}")
+    def on_will_disappear(self, payload):
+        Logger.info(f"TestAction on_will_disappear: {payload}")
 
-    def on_dial_rotate(self, payload: dict):
-        # Verified
-        Logger.info(f"[TestAction] Dial rotate event with payload: {payload}")
+    def on_did_receive_settings(self, settings):
+        Logger.info(f"TestAction on_did_receive_settings: {settings}")
 
-    def on_device_did_connect(self, payload: dict):
-        # Verified
-        Logger.info(f"[TestAction] Device connected with payload: {payload}")
+    def on_did_receive_global_settings(self, settings):
+        Logger.info(f"TestAction on_did_receive_global_settings: {settings}")
 
-    def on_device_did_disconnect(self, data: dict):
-        # Verified
-        Logger.info(f"[TestAction] Device disconnected with data: {data}")
+    def on_title_parameters_did_change(self, payload):
+        Logger.info(f"TestAction on_title_parameters_did_change: {payload}")
 
-    def on_application_did_launch(self, data: dict):
-        # Verified
-        Logger.info(f"[TestAction] Application launched with data: {data}")
+    def on_device_did_connect(self, data):
+        Logger.info(f"TestAction on_device_did_connect: {data}")
 
-    def on_application_did_terminate(self, data: dict):
-        # Verified
-        Logger.info(f"[TestAction] Application terminated with data: {data}")
+    def on_device_did_disconnect(self, data):
+        Logger.info(f"TestAction on_device_did_disconnect: {data}")
 
-    def on_system_did_wake_up(self, data: dict):
-        # Verified
-        Logger.info(f"[TestAction] System woke up with data: {data}")
+    def on_application_did_launch(self, data):
+        Logger.info(f"TestAction on_application_did_launch: {data}")
 
-    def on_property_inspector_did_appear(self, data: dict):
-        # Verified
-        Logger.info(f"[TestAction] Property inspector appeared with data: {data}")
+    def on_application_did_terminate(self, data):
+        Logger.info(f"TestAction on_application_did_terminate: {data}")
 
-    def on_property_inspector_did_disappear(self, data: dict):
-        # Verified
-        Logger.info(f"[TestAction] Property inspector disappeared with data: {data}")
+    def on_system_did_wake_up(self, data):
+        Logger.info(f"TestAction on_system_did_wake_up: {data}")
 
-    def on_send_to_plugin(self, payload: dict):
-        # Verified
-        Logger.info(f"[TestAction] Received message from property inspector with payload: {payload}")
+    def on_property_inspector_did_appear(self, data):
+        Logger.info(f"TestAction on_property_inspector_did_appear: {data}")
+
+    def on_property_inspector_did_disappear(self, data):
+        Logger.info(f"TestAction on_property_inspector_did_disappear: {data}")
+
+    def on_send_to_plugin(self, payload):
+        Logger.info(f"TestAction on_send_to_plugin: {payload}")
