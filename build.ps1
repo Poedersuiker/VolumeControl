@@ -3,7 +3,7 @@ git fetch origin
 git reset --hard origin/main
 git clean -fdx
 python -m venv venv
-.venvScriptsactivate
+venv\Scripts\activate
 pip install -r requirements.txt
 PyInstaller main.spec
 copy *.exe nl.the-underground.streamdock.VolumerControl
