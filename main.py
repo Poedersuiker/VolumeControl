@@ -15,21 +15,26 @@ def main():
     args = parser.parse_args()
 
     try:
-        # Logger.info(f"Plugin parameters - Port: {args.port}, UUID: {args.pluginUUID}, Event: {args.registerEvent}, Info: {args.info}")
-        time.sleep(1)
         plugin = Plugin(args.port, args.pluginUUID, args.registerEvent, args.info)
         stop_event = threading.Event()
+
         def on_close(ws, close_status_code, close_msg):
-            plugin.stop()
+            Logger.info("Connection closed")
             stop_event.set()
-            Logger.info('Plugin stopped')
-        
+
         plugin.ws.on_close = on_close
-        stop_event.wait()
-            
-    except Exception as e:
-        Logger.info(e)
+
+        Logger.info("Plugin is ready for testing. Press Ctrl+C to exit.")
+        # Keep the main thread alive
+        while not stop_event.is_set():
+            time.sleep(1)
+
+    except KeyboardInterrupt:
+        Logger.info("Plugin stopped by user.")
         sys.exit(0)
+    except Exception as e:
+        Logger.error(f"An error occurred: {e}")
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
