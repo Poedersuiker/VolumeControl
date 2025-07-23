@@ -1,6 +1,7 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-git clean -fdx
+git fetch origin
 git reset --hard origin/main
+git clean -fdx
 python -m venv venv
 .venvScriptsactivate
 pip install -r requirements.txt
