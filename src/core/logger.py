@@ -37,7 +37,7 @@ class Logger:
         Configures the logger's output format, log level, and output file.
         """
         if cls._logger is None:
-            cls._logger = logging.getLogger('StreamDock')
+            cls._logger = logging.getLogger('TUNL.VolumeControl')
             cls._logger.setLevel(logging.INFO)
             
             # Get the log directory path
