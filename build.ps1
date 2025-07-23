@@ -6,5 +6,5 @@ python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 PyInstaller main.spec
-copy *.exe nl.the-underground.streamdock.VolumerControl
+copy dist\*.exe nl.the-underground.streamdock.VolumerControl
 deactivate
